@@ -29,7 +29,8 @@ const CLASH_MAP = {
 
 /* ======= clash meta ======= */
 const META_URL_PREFIX = `https://github.com/MetaCubeX/Clash.Meta/releases/download/`;
-const META_VERSION = "v1.14.5";
+const META_VERSION = "Prerelease-Alpha";
+const META_ALPHA_VERSION = "af28b99"
 
 const META_MAP = {
   "win32-x64": "Clash.Meta-windows-amd64-compatible",
@@ -73,7 +74,7 @@ function clashMeta() {
   const name = META_MAP[`${platform}-${arch}`];
   const isWin = platform === "win32";
   const urlExt = isWin ? "zip" : "gz";
-  const downloadURL = `${META_URL_PREFIX}${META_VERSION}/${name}-${META_VERSION}.${urlExt}`;
+  const downloadURL = `${META_URL_PREFIX}${META_VERSION}/${name}-alpha-${META_ALPHA_VERSION}.${urlExt}`;
   const exeFile = `${name}${isWin ? ".exe" : ""}`;
   const zipFile = `${name}-${META_VERSION}.${urlExt}`;
 
@@ -222,7 +223,7 @@ async function downloadFile(url, path) {
  * main
  */
 const SERVICE_URL =
-  "https://github.com/zzzgydi/clash-verge-service/releases/download/latest";
+  "https://github.com/riolurs/clash-verge-service/releases/download/latest";
 
 const resolveService = () =>
   resolveResource({
@@ -242,17 +243,17 @@ const resolveUninstall = () =>
 const resolveMmdb = () =>
   resolveResource({
     file: "Country.mmdb",
-    downloadURL: `https://github.com/Dreamacro/maxmind-geoip/releases/download/20221112/Country.mmdb`,
+    downloadURL: `https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb`,
   });
 const resolveGeosite = () =>
   resolveResource({
     file: "geosite.dat",
-    downloadURL: `https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat`,
+    downloadURL: `https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat`,
   });
 const resolveGeoIP = () =>
   resolveResource({
     file: "geoip.dat",
-    downloadURL: `https://github.com/Loyalsoldier/geoip/releases/latest/download/geoip.dat`,
+    downloadURL: `https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat`,
   });
 
 const tasks = [
