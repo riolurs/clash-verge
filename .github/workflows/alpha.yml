@@ -94,6 +94,17 @@ jobs:
           prerelease: true
           includeDebug: ${{ github.event.inputs.debug }}
 
+      - name: arrch64 build
+        if: matrix.os == 'macos-latest'
+        env:
+          TAG_NAME: alpha
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
+          TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
+        run: | 
+          yarn build
+          yarn run aarch
+
       - name: Portable Bundle
         if: matrix.os == 'windows-latest'
         run: |

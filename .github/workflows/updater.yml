@@ -26,6 +26,8 @@ jobs:
         run: yarn install
 
       - name: Release updater file
-        run: yarn run updater
+        run: |
+          yarn run updater
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
