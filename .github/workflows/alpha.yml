@@ -94,11 +94,15 @@ jobs:
           prerelease: true
           includeDebug: ${{ github.event.inputs.debug }}
 
+      - name: arrch64 build
+        run: | 
+          yarn build
+          yarn run aarch
+
       - name: Portable Bundle
         if: matrix.os == 'windows-latest'
         run: |
           yarn build
-          yarn run aarch
           yarn run portable
         env:
           TAG_NAME: alpha
